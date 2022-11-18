@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="battle">
+        <section class="knight">
+            <span class="imgBox"><img src="./img/Warrior1.jpg" class="img"></span>
+                <div class="info">
+                <p class="boxLife">
+                    <label for="life" >Vida</label>
+                    <input type="text" id="vidaKnight1" disabled value="" name="life" class="life">
+                </p>
+                <p class="preparado" id="preparado1">
+                    Sem posição
+                </p>
+                <p class="action" id="action1">
+                    Escolha a ação!
+                </p>
+                <p class="menu1">
+                    <button type="button" class="botaoAcao" id="preparar1" onclick="preparar1()">Preparar</button>
+                    <button type="button" class="botaoAcao" id="atacar1" onclick="atacar1()">Atacar</button>
+                    <button type="button" class="botaoAcao" id="defender1" onclick="defesa1()">Defender</button>
+                    <button type="button" class="botaoAcao" id="esquivar1" onclick="esquiva1()">Esquivar</button>
+
+                </p>
+            </div>
+        </section>
+        <section class="knight">
+            <span class="imgBox"><img src="./img/archer2ff.png" class="img"></span>
+            <div class="info">
+                <p class="boxLife">
+                    <label for="life">Vida</label>
+                    <input type="text" id="vidaKnight2" disabled value="" name="life" class="life">
+                </p>
+                <p class="preparado" id="preparado2">
+                    Sem posição
+                </p>
+                <p class="action" id="action2">
+                    Escolha a ação!
+                </p>
+                <p class="menu2">
+                    <button type="button" class="botaoAcao" id="preparar2" onclick="preparar2()">Preparar</button>
+                    <button type="button" class="botaoAcao" id="atacar2" onclick="atacar2()">Atacar</button>
+                    <button type="button" class="botaoAcao" id="defender2" onclick="defesa2()">Defender</button>
+                    <button type="button" class="botaoAcao" id="esquivar2" onclick="esquiva2()">Esquivar</button>
+
+                </p>
+            </div>
+        </section>
+    </main>
+
+
+
+    <p  class="btnBatalha" id="batalharClick">
+        <input type="button" id="batalhar" value="BATALHAR" >
+    </p>
+    <script src="./js/script.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+
+body{
+    font-family: 'Indie Flower';
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    flex-direction: column;
+
+}
+
+
+.botaoIniciar{
+    background-image: url(../img/blueButton.png);
+    background-size: 120px 80px;
+    height: 80px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.botaoIniciar:hover{
+    background-image: url(../img/redButton.png);
+}
+
+.players{
+    display: none;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.player1, .player2{
+    background-image: url(../img/player1.png);
+    background-size: 140px 50px;
+    height: 50px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: black;
+    
+}
+
+.player1:hover, .player2:hover{
+    background-image: url(../img/player1Market.png);
+    color: white;
+}
+
+.placaBemvindo{
+    background-image: url(../img/placaMadeira.png);
+    background-repeat: no-repeat;
+    background-size: 457px 408px;
+    width: 457px;
+    height: 408px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.0rem;
+    padding-top: 70px;
+    font-weight: 500;
+    color: rgba(180, 180, 180, 0.959);
+    font-family: 'Slackey';
+    
+}
+
+a{
+    text-decoration: none;
+}
