@@ -399,20 +399,22 @@ function advPrepareOn(){
         }
     }else if(knight1Obj.prepare && knight2Obj.prepare &&knight1Obj.dom.vida.value <= 4){
         let decisao = Math.floor(Math.random() * 3)
-        if(decisao == 0){
-            knight2Obj.ataque = true
-        }else if(decisao == 1){
-            knight2Obj.defense = true
-        } else if(decisao == 2){
-            knight2Obj.dodge = true
+        switch(decisao){
+            case 0:
+                knight2Obj.ataque = true
+            break
+            case 1:
+                knight2Obj.defense = true
+            break
+            case 2:
+                knight2Obj.dodge = true
+            break
         }
     }
     if(knight1Obj.prepare && knight2Obj.prepare == false){
         knight2Obj.dodge = true
     }
 }
-
-
 
 
 
