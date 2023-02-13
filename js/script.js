@@ -4,6 +4,8 @@
 let knightChoise // serve para identificar qual cavaleiro vai usar os dados
 let knight1Select = 0
 let knight2Select = 0
+let decisao1 = 4
+let decisao2 = 4
 disabledButtons2()
 
 let knight1Obj = {
@@ -185,7 +187,7 @@ function ataqueVsAtaque(knightAttack, knightPrepare, knightRetaque, knightRLife,
                 }else{
                     knight2Obj.prepare = false
                 }
-            knightPrepare = false
+            
         }
     }else{
         actionText.innerText = 'Não estava em posição para atacar!!'
@@ -199,7 +201,11 @@ function ataqueVsDefense(knightAttack, knightPrepare, knightRDefense, knightRLif
         if(knightAttack && knightRDefense){ // Attack vs defense
             if(knightPrepare){
                 knightRLife.value = knightRLife.value - 1
-                knightPrepare = false
+                if(knightChoise == 1){
+                    knight1Obj.prepare = false
+                }else{
+                    knight2Obj.prepare = false
+                }
                 actionText.innerText = 'Acertou o ataque!!'
                 outPrepareText.innerText = 'Sem posição'
             }else{
@@ -219,7 +225,11 @@ function ataqueVsPrepare(knightAttack, knightPrepare, knightRetaque, knightRDefe
             if(knightPrepare){
                 knightRLife.value = knightRLife.value - 3
                 actionText.innerText = 'Acertou o ataque!!'             
-                knightPrepare = false    
+                if(knightChoise == 1){
+                    knight1Obj.prepare = false
+                }else{
+                    knight2Obj.prepare = false
+                }   
                 outPrepareText.innerText = 'Sem posição'
 
         }else{
@@ -234,10 +244,18 @@ function ataqueVsDodge(knightAttack, knightPrepare, knightRDodge, actionText, ou
             if(knightPrepare){
                 actionText.innerText = 'Knight errou o Ataque,\n o adversário se esquivou!'
                 outPrepareText.innerText = 'Sem posição'
-                knightPrepare = false 
+                if(knightChoise == 1){
+                    knight1Obj.prepare = false
+                }else{
+                    knight2Obj.prepare = false
+                }
             }else{
                 actionText.innerText = 'Knight não estava preparado,\n errou o ataque'
-                knightPrepare = false
+                if(knightChoise == 1){
+                    knight1Obj.prepare = false
+                }else{
+                    knight2Obj.prepare = false
+                }
             }
         }
           
@@ -247,11 +265,19 @@ function ataqueVsDodge(knightAttack, knightPrepare, knightRDodge, actionText, ou
 function dodge(knightDodge){
         if(knightDodge){
         if(knightChoise == 1){
-            knight1Obj.prepare = false
+            if(knightChoise == 1){
+                knight1Obj.prepare = false
+            }else{
+                knight2Obj.prepare = false
+            }
             knight1Obj.dom.outAction.innerText = 'Knight se esquivou! \n(Saiu da posição de ataque)'
             knight1Obj.dom.outPrepare.innerText = 'Sem posição'
         }else{
-            knight2Obj.prepare = false
+            if(knightChoise == 1){
+                knight1Obj.prepare = false
+            }else{
+                knight2Obj.prepare = false
+            }
             knight2Obj.dom.outAction.innerText = 'Knight se esquivou! \n(Saiu da posição de ataque)'
             knight2Obj.dom.outPrepare.innerText = 'Sem posição'
         }
@@ -299,7 +325,8 @@ function clearStatus(){
     knight2Obj.defense = false
     knight2Obj.dodge = false
 
-
+    decisao1 = 4
+    decisao2 = 4
 }
 
 ////////////////////////////////////////////////////////////////////// Exec validation
@@ -390,16 +417,17 @@ function advPrepareOff(){
 }
 
 function advPrepareOn(){
-    if(knight1Obj.prepare && knight2Obj.prepare && knight1Obj.dom.vida.value >= 5){
-        let decisao = Math.floor(Math.random() * 2)  
-        if(decisao == 0){   
+    if(knight1Obj.prepare && knight2Obj.prepare && knight2Obj.dom.vida.value >= 5){
+        decisao1 = Math.floor(Math.random() * 2)  
+        if(decisao1 == 0){   
             knight2Obj.ataque = true
         }else{
             knight2Obj.defense = true
         }
-    }else if(knight1Obj.prepare && knight2Obj.prepare &&knight1Obj.dom.vida.value <= 4){
-        let decisao = Math.floor(Math.random() * 3)
-        switch(decisao){
+    }else if(knight1Obj.prepare && knight2Obj.prepare &&knight2Obj.dom.vida.value <= 4){
+        decisao2 = Math.floor(Math.random() * 3)
+        console.log(decisao2)
+        switch(decisao2){
             case 0:
                 knight2Obj.ataque = true
             break
@@ -410,9 +438,12 @@ function advPrepareOn(){
                 knight2Obj.dodge = true
             break
         }
+        
     }
     if(knight1Obj.prepare && knight2Obj.prepare == false){
         knight2Obj.dodge = true
+        console.log('K1 prepardo e k2 se esquiva')
+        
     }
 }
 
