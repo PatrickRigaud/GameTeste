@@ -13,3 +13,5 @@ Existem 4 comandos:
 <li> Atacar -> Caso acerte o ataque o adversário sofre 3 de dano.</li>
 <li> Defender -> Defender não perde a posição de ataque, porém caso o adversário ataque ainda sofrerá 1 de dano.</li>
 <li> Esquivar -> Esquivar perde a posição de ataque, mas não sofre nenhum dano.</li>
+
+![ImagemJogo](https://user-images.githubusercontent.com/104288701/218742572-b14223bc-56f8-4019-81e9-6837f9ef0e8a.png)
